@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 /**
  * Class LoginRequest
- * @package App\Http\Requests\Admin
+ * @package App\Http\Requests\admin
  */
 class LoginRequest extends BaseRequest
 {

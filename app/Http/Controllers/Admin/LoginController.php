@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 /**
  * Class LoginController
- * @package App\Http\Controllers\Admin
+ * @package App\Http\Controllers\admin
  */
 class LoginController extends Controller
 {
