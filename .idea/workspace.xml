@@ -2,74 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="127de063-9354-43a2-9c39-8172f14f1220" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/blog.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/Gemfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/Gemfile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/_config.build.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/_config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/_includes/navbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/_layouts/default.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/bin/jsencrypt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/bin/jsencrypt.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/asn1js/asn1.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/asn1js/base64.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/asn1js/hex.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/asn1js/int10.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/jsbn/base64.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/jsbn/jsbn.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/jsbn/prng4.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/jsbn/rng.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/jsbn/rsa.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/lib/jsbn/util.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/src/JSEncrypt.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/src/JSEncryptRSAKey.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/declarations/src/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/demo/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/example.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/gulpfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/asn1js/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/asn1js/asn1.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/asn1js/base64.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/asn1js/hex.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/asn1js/int10.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/asn1js/oids.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsbn/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsbn/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsbn/base64.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsbn/jsbn.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsbn/prng4.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsbn/rng.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsbn/rsa.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsbn/util.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsrsasign/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsrsasign/asn1-1.0.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsrsasign/asn1-1.0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/lib/jsrsasign/yahoo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/rollup.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/src/JSEncrypt.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/src/JSEncryptRSAKey.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/src/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/stats.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/test/generate_test_keys.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/test/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/test/libs/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/test/libs/mocha.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/test/libs/mocha.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/test/test.rsa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/tslint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/static/common/jsencrypt/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -191,13 +123,14 @@
   <component name="ProjectId" id="1SqTxJQ9dkGByGAfnJwDFZihwWb" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/static/common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\all\web\PHPTutorial\WWW\SteffenBlog\app" />
       <recent name="D:\all\web\PHPTutorial\WWW\SteffenBlog\public\static\common" />
     </key>
   </component>
@@ -225,7 +158,7 @@
       <updated>1572228360311</updated>
       <workItem from="1572228361681" duration="2428000" />
       <workItem from="1572232710575" duration="1321000" />
-      <workItem from="1572290372169" duration="204000" />
+      <workItem from="1572290372169" duration="291000" />
     </task>
     <servers />
   </component>
