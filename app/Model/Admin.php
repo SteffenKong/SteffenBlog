@@ -26,6 +26,7 @@ class Admin extends Model
         
     }
 
+
     /**
      * @param $account
      * @param $password

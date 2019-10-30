@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 /**
  * Class LoginController
- * @package App\Http\Controllers\Admin
+ * @package App\Http\Controllers\admin
  */
 class LoginController extends Controller
 {
@@ -45,7 +45,7 @@ class LoginController extends Controller
         $res = $this->adminModel->login($account,$passowrd);
 
         if(!$res) {
-            //错误提示
+
         }
 
         //成功提示
