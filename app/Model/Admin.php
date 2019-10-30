@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Carbon\Carbon;
+use App\Tools\Rsa;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -17,13 +18,41 @@ class Admin extends Model
     protected $primaryKey = 'id';
     protected $table = 'admin';
 
-    public function login($account,$password) {
 
+    /**
+     * @param $account
+     * @param $password
+     * @return array|bool
+     * 登录
+     */
+    public function login($account,$password) {
+        $rsa = new Rsa();
+        //导入私钥
+        $rsa->setPrivateKey(config('admin.privateKey'));
+        //私钥解密
+        $pass = $rsa->decrpytByPrivateKey($password);
+        $pass = bcrypt($pass);
+
+        $admin = Admin::where('account',$account)->where('password',$pass)->first();
+
+        if(!$admin) {
+            return false;
+        }
+
+        return [
+            'id'=>$admin->id,
+            'account'=>$admin->account,
+            'isAdmin'=>$admin->is_admin,
+            'status'=>$admin->status
+        ];
     }
 
 
     public function getList($pageSize,$account,$tel,$email,$status) {
-        
+//        Admin::when(!empty($account),function($query) {
+//
+//        })
+//            ->when(!empty($tel))
     }
 
 
@@ -103,5 +132,15 @@ class Admin extends Model
         }
 
         return Admin::where('id',$id)->delete();
+    }
+
+
+    /**
+     * @param $id
+     * @return mixed
+     * 获取状态
+     */
+    public function getStatus($id) {
+        return Admin::where('id',$id)->value('status');
     }
 }

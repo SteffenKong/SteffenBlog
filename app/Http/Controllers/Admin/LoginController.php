@@ -44,11 +44,18 @@ class LoginController extends Controller
 
         $res = $this->adminModel->login($account,$passowrd);
 
-        if(!$res) {
+        $status = $this->adminModel->getStatus($res['id']);
 
+        if(!$status) {
+            return jsonPrint('001','管理员已被禁用!');
+        }
+
+        if(!$res) {
+            return jsonPrint('001','登录失败');
         }
 
         //成功提示
+        return jsonPrint('000','登录成功');
     }
 
 
@@ -61,5 +68,14 @@ class LoginController extends Controller
 
         //跳转到login页面
         return redirect('/admin/login');
+    }
+
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     * 获取公钥
+     */
+    public function getPublicKey() {
+        return jsonPrint('000','获取成功',['publicKey'=>config('admin.publicKey')]);
     }
 }

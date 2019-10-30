@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('/static/admin')}}/css/xadmin.css">
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{asset('/static/admin')}}/lib/layui/layui.js" charset="utf-8"></script>
-    <script src="{{asset('/static/common')}}/jsencrypt/jsencrypt.min.js" charset="utf-8"></script>
+    <script src="{{asset('/static/common')}}/jsencrypt/bin/jsencrypt.min.js" charset="utf-8"></script>
     <script src="{{asset('/static/admin')}}/js/login.js" charset="utf-8"></script>
 {{--    <script src="{{asset('/static/admin')}}/js/layer/layer.js" charset="utf-8"></script>--}}
     <script src="https://cdn.bootcss.com/layer/2.3/layer.js" charset="utf-8"></script>

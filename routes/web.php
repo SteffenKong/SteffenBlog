@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Route::group(['namespace'=>'admin'],function() {
     Route::group(['prefix'=>'admin'],function() {
+
+        //登录
         Route::get('login','LoginController@login');
+        Route::get('getPublicKey','LoginController@getPublicKey');
+        Route::post('sign','LoginController@sign');
+        Route::get('logout','LoginController@logout');
     });
 });

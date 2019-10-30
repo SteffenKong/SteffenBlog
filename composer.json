@@ -42,7 +42,8 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ]
+        ],
+        "files": ["functions.php"]
     },
     "autoload-dev": {
         "psr-4": {
