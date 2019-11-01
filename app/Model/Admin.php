@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Carbon\Carbon;
 use App\Tools\Rsa;
+use Hash;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -18,6 +19,16 @@ class Admin extends Model
     protected $primaryKey = 'id';
     protected $table = 'admin';
 
+    /**
+     * @var
+     */
+    protected $rsa;
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->rsa = new Rsa();
+    }
 
     /**
      * @param $account
@@ -26,17 +37,28 @@ class Admin extends Model
      * 登录
      */
     public function login($account,$password) {
-        $rsa = new Rsa();
         //导入私钥
-        $rsa->setPrivateKey(config('admin.privateKey'));
+        $this->rsa->setPrivateKey(config('admin.privateKey'));
         //私钥解密
-        $pass = $rsa->decrpytByPrivateKey($password);
-        $pass = bcrypt($pass);
+        $pass = $this->rsa->decrpytByPrivateKey($password);
+        $pass = Hash::make($pass);
 
-        $admin = Admin::where('account',$account)->where('password',$pass)->first();
+        $admin = Admin::where('account',$account)->first();
 
+        //用户不存在
         if(!$admin) {
             return false;
+        }
+
+        //密码校验失败
+        if(!Hash::check($pass,$admin->password)) {
+            return false;
+        }
+
+        //重新给密码加密
+        if (Hash::needsRehash($password)) {
+            $hashed = Hash::make($password);
+            Admin::where('account',$account)->update(['password'=>$hashed]);
         }
 
         return [
