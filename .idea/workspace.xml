@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf8ccb7-3eff-40a2-a22c-99c7a9e6afd0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design/系统模块" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/static/admin/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/admin/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/login/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/login/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/design/design2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/design/design2.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,16 +117,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="315" />
-    <option name="y" value="214" />
-    <option name="width" value="1396" />
-    <option name="height" value="1040" />
-  </component>
   <component name="ProjectId" id="1SqTxJQ9dkGByGAfnJwDFZihwWb" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
@@ -158,7 +148,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="127de063-9354-43a2-9c39-8172f14f1220" name="Default Changelist" comment="" />
+      <changelist id="6bf8ccb7-3eff-40a2-a22c-99c7a9e6afd0" name="Default Changelist" comment="" />
       <created>1572228360311</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -166,6 +156,7 @@
       <workItem from="1572228361681" duration="2428000" />
       <workItem from="1572232710575" duration="1321000" />
       <workItem from="1572290372169" duration="291000" />
+      <workItem from="1572587949744" duration="2541000" />
     </task>
     <servers />
   </component>

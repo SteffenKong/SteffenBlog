@@ -21,6 +21,7 @@ create table if not exists blog_admin_info(
     big_image varchar(191) not null comment '头像大图',
     small_image varchar(191) not null comment '头像缩略图',
     last_login_ip varchar(191) not null comment '上次登录的ip',
+    last_login_time datetime not null comment '上次登录时间',
     created_at datetime,
     updated_at datetime,
     primary key (id),
@@ -129,7 +130,9 @@ create table if not exists blog_user(
     updated_at datetime,
     primary key (id),
     unique key uk_account(account),
+    is_delete tinyint not null default 0 comment '删除状态 0 - 未删除 1 - 已删除',
     index idx_status(status),
+    index idx_is_delete(is_delete),
     index idx_is_active(is_active)
 )charset=utf8,engine=innodb;
 
@@ -170,11 +173,13 @@ create table if not exists blog_article(
     status tinyint default 0 comment '状态 0 - 可查看 1 - 不可查看',
     is_verify tinyint default 0 comment '审核状态 0 - 待审核  1 - 不通过 2 - 通过',
     public_time datetime comment '提交时间',
+    is_delete tinyint not null default 0 comment '删除状态 0 - 未删除 1 - 已删除',
     created_at datetime,
     updated_at datetime,
     primary key (id),
     index idx_user_id (user_id),
     index idx_status (status),
+    index idx_is_delete (is_delete),
     index idx_is_verify (is_verify)
 )charset=utf8,engine=innodb;
 
@@ -213,7 +218,7 @@ create table if not exists blog_article_details(
 )charset=utf8,engine=innodb;
 
 
--- 管理员登录表
+-- 管理员登录日志表
 create table if not exists blog_admin_login_log(
     id mediumint unsigned not null,
     admin_id mediumint unsigned not null comment '管理员id',
@@ -226,7 +231,7 @@ create table if not exists blog_admin_login_log(
 )charset=utf8,engine=innodb;
 
 
--- 前台用户登录表
+-- 前台用户登录日志表
 create table if not exist blog_user_login_log(
     id mediumint unsigned no null auto_increment,
     user_id mediumint unsigned not null comment '用户id',
@@ -258,6 +263,9 @@ create table if not exists blog_link(
      id mediumint unsigned not null auto_increment,
      name varchar(191) not null comment '友情名称',
      url varchar(191) not null comment '友情链接',
+     sort int default 50 comment '排序',
+     is_rec tinyint not null comment '是否推荐',
+     is_delete tinyint default 0 comment '删除状态 0 - 未删除 1 - 已删除',
      created_at datetime,
      updated_at datetime,
      primary key(id),
