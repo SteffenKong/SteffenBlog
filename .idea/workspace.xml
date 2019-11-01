@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf8ccb7-3eff-40a2-a22c-99c7a9e6afd0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design/系统模块" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032430_create_blog_admin_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032447_create_blog_nav_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032515_create_blog_cate_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032542_create_blog_tags_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032554_create_blog_article_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032607_create_blog_cate_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032626_create_blog_tag_article_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032652_create_blog_article_details_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_032711_create_blog_link_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/design/design2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/design/design2.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -156,7 +163,8 @@
       <workItem from="1572228361681" duration="2428000" />
       <workItem from="1572232710575" duration="1321000" />
       <workItem from="1572290372169" duration="291000" />
-      <workItem from="1572587949744" duration="2541000" />
+      <workItem from="1572587949744" duration="5029000" />
+      <workItem from="1572600483964" duration="390000" />
     </task>
     <servers />
   </component>

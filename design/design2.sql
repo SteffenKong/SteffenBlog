@@ -273,6 +273,33 @@ create table if not exists blog_link(
      unique key uk_url(url)
 )charset=utf8,engine=innodb;
 
+-- 管理员操作日志
+create table if not exists blog_admin_logs(
+    id mediumint unsigned not null auto_increment,
+    account mediumint unsigned not null comment '管理员帐号',
+    action varchar(191) not null comment '操作动作',
+    route varchar(191) not null comment '路由',
+    method varchar(191) not null comment '操作方法',
+    params text not null comment '请求参数',
+    created_at datetime,
+    updated_at datetime,
+    primary key(id)
+)charset=utf8,engine=innodb;
+
+-- 前台用户操作日志
+create table if not exists blog_user_logs(
+    id mediumint unsigned not null auto_increment,
+    account mediumint unsigned not null comment '管理员帐号',
+    action varchar(191) not null comment '操作动作',
+    route varchar(191) not null comment '路由',
+    method varchar(191) not null comment '操作方法',
+    params text not null comment '请求参数',
+    created_at datetime,
+    updated_at datetime,
+    primary key(id)
+)charset=utf8,engine=innodb;
+
+
 -- 短信发送表
 create table if not exists blog_site_sms_message(
 
