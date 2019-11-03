@@ -1,3 +1,8 @@
+create database if not exists blog charset=utf8;
+
+use blog;
+
+
 -- 管理员
 create table if not exists blog_admin(
     id mediumint unsigned not null auto_increment,
@@ -9,19 +14,17 @@ create table if not exists blog_admin(
     updated_at datetime,
     primary key (id),
     unique key uk_account(account),
-    index idx_status(status),
+    index idx_status(status)
 )charset=utf8,engine=innodb;
 
 -- 管理员信息附属表
 create table if not exists blog_admin_info(
     id mediumint unsigned not null auto_increment,
     user_id mediumint unsigned not null comment '用户id',
-    email varchar(191) not null comment '邮箱',
-    phone varchar(32) not null comment '电话号码',
-    big_image varchar(191) not null comment '头像大图',
-    small_image varchar(191) not null comment '头像缩略图',
-    last_login_ip varchar(191) not null comment '上次登录的ip',
-    last_login_time datetime not null comment '上次登录时间',
+    email varchar(191)  comment '邮箱',
+    phone varchar(32)  comment '电话号码',
+    last_login_ip varchar(191) comment '上次登录的ip',
+    last_login_time datetime comment '上次登录时间',
     created_at datetime,
     updated_at datetime,
     primary key (id),

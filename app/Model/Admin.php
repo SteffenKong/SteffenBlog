@@ -5,6 +5,7 @@ namespace App\Model;
 use Carbon\Carbon;
 use App\Tools\Rsa;
 use Hash;
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -41,7 +42,6 @@ class Admin extends Model
         $this->rsa->setPrivateKey(config('admin.privateKey'));
         //私钥解密
         $pass = $this->rsa->decrpytByPrivateKey($password);
-        $pass = Hash::make($pass);
 
         $admin = Admin::where('account',$account)->first();
 
@@ -57,7 +57,7 @@ class Admin extends Model
 
         //重新给密码加密
         if (Hash::needsRehash($password)) {
-            $hashed = Hash::make($password);
+            $hashed = Hash::make($pass);
             Admin::where('account',$account)->update(['password'=>$hashed]);
         }
 
@@ -81,26 +81,64 @@ class Admin extends Model
     /**
      * @param $account
      * @param $password
+     * @param $status
+     * @param $isAdmin
      * @param $tel
      * @param $email
-     * @param $status
-     * @return mixed
+     * @param $phone
+     * @param $bigImage
+     * @param $smallImage
+     * @return bool
+     * @throws \Exception
      * 添加管理员
      */
-    public function add($account,$password,$tel,$email,$status) {
+    public function add($account,$password,$status,$isAdmin,$email,$phone) {
 
-        //这里密码需要进行加密解密
+        /********这里密码需要进行加密解密********/
 
-        return Admin::create([
-            'account'=>$account,
-            'password'=>$password,
-            'tel'=>$tel,
-            'email'=>$email,
-            'status'=>$status,
-            'created_at'=>Carbon::now()->toDateTimeString(),
-            'updated_at'=>Carbon::now()->toDateTimeString()
-        ]);
+        //导入私钥
+        $this->rsa->setPrivateKey(config('admin.privateKey'));
+        //私钥解密
+        $pass = $this->rsa->decrpytByPrivateKey($password);
+        $result = false;
+
+        try{
+            DB::beginTransaction();
+            $result1 = Admin::create([
+                'account'=>$account,
+                'password'=>$pass,
+                'status'=>$status,
+                'is_admin'=>$isAdmin,
+                'created_at'=>Carbon::now()->toDateTimeString(),
+                'updated_at'=>Carbon::now()->toDateTimeString()
+            ]);
+
+            $result2 = AdminInfo::create([
+                'user_id'=>$result1->id,
+                'email'=>$email,
+                'phone'=>$phone,
+                'last_login_ip'=>'',
+                'last_login_time'=>Carbon::now()->toDateTimeString(),
+                'created_at'=>Carbon::now()->toDateTimeString(),
+                'updated_at'=>Carbon::now()->toDateTimeString()
+            ]);
+
+            if($result1 && $result2) {
+                $result = true;
+            }
+        }catch (\Exception $e) {
+            $result = false;
+        }
+
+        if(!$result) {
+            DB::rollBack();
+            return false;
+        }
+
+        DB::commit();
+        return true;
     }
+
 
     /**
      * @param $id
@@ -114,7 +152,14 @@ class Admin extends Model
      */
     public function edit($id,$account,$password,$tel,$email,$status) {
 
-        //这里密码需要进行加密解密
+        /********这里密码需要进行加密解密********/
+        //导入私钥
+        $this->rsa->setPrivateKey(config('admin.privateKey'));
+        //私钥解密
+        $pass = $this->rsa->decrpytByPrivateKey($password);
+        $result = false;
+
+
 
         return Admin::where('id',$id)->update([
             'account'=>$account,

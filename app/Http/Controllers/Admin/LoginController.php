@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\LoginEvent;
 use App\Http\Requests\Admin\LoginRequest;
 use App\Model\Admin;
+use Carbon\Carbon;
+use Carbon\Exceptions\BadUnitException;
 use Illuminate\Http\Request;
 use App\Tools\Loader;
 use App\Http\Controllers\Controller;
@@ -42,17 +45,19 @@ class LoginController extends Controller
         $account = $request->get('account');
         $passowrd = $request->get('password');
 
-        $res = $this->adminModel->login($account,$passowrd);
+        $admin = $this->adminModel->login($account,$passowrd);
 
-        $status = $this->adminModel->getStatus($res['id']);
-
-        if(!$status) {
-            return jsonPrint('001','管理员已被禁用!');
-        }
-
-        if(!$res) {
+        if(!$admin) {
             return jsonPrint('001','登录失败');
         }
+
+
+        if(!$this->adminModel->getStatus($admin['id'])) {
+            return jsonPrint('002','管理员已被禁用!');
+        }
+
+        //生成session,写入日志
+        event(new LoginEvent($admin,$request->getClientIp(),Carbon::now()->toDateTimeString(),$admin['id']));
 
         //成功提示
         return jsonPrint('000','登录成功');

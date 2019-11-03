@@ -58,25 +58,44 @@ $(function() {
         //加密后清除本地存储
         localStorage.removeItem('publicKey');
 
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         //提交
         $.ajax({
             url: '/admin/sign',
             data: {'account': account, password: passWord, captcha: captcha},
             type: 'post',
             dataType: 'json',
-            success: function () {
-                if (response.code == '000') {
+            success: function (response) {
+                if (response.status === '000') {
                     layer.msg('登录成功', {icon: 1});
                     setTimeout(function() {
                         window.location = '/admin/index';
                     },1000);
-                } else if (response.code === '001') {
+                } else if (response.status === '001') {
                     layer.msg('登录失败', {icon: 2});
-                } else if (response.code === '002') {
+                    setTimeout(function() {
+                        window.location = '/admin/login';
+                    },1000);
+                } else if (response.status === '002') {
                     //用户未启用
                     layer.msg('用户未启用', {icon: 2});
+                    setTimeout(function() {
+                        window.location = '/admin/login';
+                    },1000);
                 } else {
                     //其他错误
+                    $.each(response.errors,function(k,v) {
+                        layer.msg(v[0],{icon:2});
+                        return false;   //跳出循环
+                    });
+                    setTimeout(function() {
+                        window.location = '/admin/login';
+                    },1000);
                 }
             }
         });

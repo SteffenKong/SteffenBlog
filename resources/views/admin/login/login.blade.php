@@ -2,11 +2,12 @@
 <html  class="x-admin-sm">
 <head>
 	<meta charset="UTF-8">
-	<title>孔浩源个人博客 - 后台系统</title>
+	<title>多人博客系统-登录</title>
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{asset('/static/admin')}}/css/font.css">
     <link rel="stylesheet" href="{{asset('/static/admin')}}/css/login.css">
     <link rel="stylesheet" href="{{asset('/static/admin')}}/css/xadmin.css">
@@ -24,7 +25,7 @@
 <body class="login-bg">
 
     <div class="login layui-anim layui-anim-up">
-        <div class="message">孔浩源博客系统-登录</div>
+        <div class="message">多人博客系统-登录</div>
         <div id="darkbannerwrap"></div>
 
         <form method="post" class="layui-form" >
@@ -32,7 +33,7 @@
             <hr class="hr15">
             <input name="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
             <hr class="hr15">
-            <input name="text" lay-verify="required" placeholder="验证码" style="width:90px; float:left;"  type="text" class="layui-input">
+            <input name="captcha" lay-verify="required" placeholder="验证码" style="width:90px; float:left;"  type="text" class="layui-input">
             <img src="{!! captcha_src('math') !!}" class="captcha" style="float:left;  margin-left:10px; height: 50px; width:240px;" />
             <hr class="hr15">
             <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
