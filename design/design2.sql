@@ -57,7 +57,7 @@ create table if not exists blog_role(
 -- 角色权限表
 create table if not exists blog_role_permission(
     id mediumint unsigned not null auto_increment,
-    role_id mediumint unsigned not null comment '角色id'
+    role_id mediumint unsigned not null comment '角色id',
     permission_id mediumint unsigned not null comment '权限id',
     created_at datetime,
     updated_at datetime,
@@ -73,12 +73,12 @@ create table if not exists blog_permission(
     permission_name varchar(191) not null comment '权限名',
     parent_id mediumint default 0 comment '父级权限id',
     url varchar(191) comment '路由url',
-    method varchar(191) no null comment '请求方法',
+    method varchar(191)  comment '请求方法',
     created_at datetime,
     updated_at datetime,
     primary key(id),
     index idx_parent_id(parent_id),
-    index idx_method(method),
+    index idx_method(method)
 )charset=utf8,engine=innodb;
 
 -- 博客导航栏表
