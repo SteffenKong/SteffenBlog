@@ -9,6 +9,11 @@ use App\Tools\Loader;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\BaseController;
 
+/**
+ * Class AdminController
+ * @package App\Http\Controllers\Admin
+ * 管理员控制器
+ */
 class AdminController extends BaseController
 {
 
