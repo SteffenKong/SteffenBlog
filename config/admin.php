@@ -70,5 +70,7 @@ iaZgYYtdMInQqGkTHXeYKq+OgJqzLyE7u/fsJhlgqPl3dqLLG+ArrlgRvSKIP6g5
 vCSrwea289loD5eRQSYUD9KCWJqvlTPIPF89BkMDLkW8mV7wslBUy7tqmXsMgjMd
 35WLITypsPJ+xXizYSotiP2NZckHDCDn
 -----END PRIVATE KEY-----
-'
+',
+
+    'tokenType'=>'session'
 ];

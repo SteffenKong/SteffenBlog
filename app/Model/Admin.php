@@ -144,13 +144,15 @@ class Admin extends Model
      * @param $id
      * @param $account
      * @param $password
-     * @param $tel
-     * @param $email
      * @param $status
-     * @return mixed
+     * @param $isAdmin
+     * @param $email
+     * @param $phones
+     * @return bool
+     * @throws \Exception
      * 编辑管理员
      */
-    public function edit($id,$account,$password,$tel,$email,$status) {
+    public function edit($id,$account,$password,$status,$isAdmin,$email,$phone) {
 
         /********这里密码需要进行加密解密********/
         //导入私钥
@@ -160,15 +162,41 @@ class Admin extends Model
         $result = false;
 
 
+        try{
+            DB::beginTransaction();
+            $result1 = Admin::where('id',$id)->update([
+                'account'=>$account,
+                'password'=>$pass,
+                'status'=>$status,
+                'is_admin'=>$isAdmin,
+                'created_at'=>Carbon::now()->toDateTimeString(),
+                'updated_at'=>Carbon::now()->toDateTimeString()
+            ]);
 
-        return Admin::where('id',$id)->update([
-            'account'=>$account,
-            'password'=>$password,
-            'tel'=>$tel,
-            'email'=>$email,
-            'status'=>$status,
-            'updated_at'=>Carbon::now()->toDateTimeString()
-        ]);
+            $result2 = AdminInfo::where('user_id',$id)->update([
+                'user_id'=>$result1->id,
+                'email'=>$email,
+                'phone'=>$phone,
+                'last_login_ip'=>'',
+                'last_login_time'=>Carbon::now()->toDateTimeString(),
+                'created_at'=>Carbon::now()->toDateTimeString(),
+                'updated_at'=>Carbon::now()->toDateTimeString()
+            ]);
+
+            if($result1 && $result2) {
+                $result = true;
+            }
+        }catch (\Exception $e) {
+            $result = false;
+        }
+
+        if(!$result) {
+            DB::rollBack();
+            return false;
+        }
+
+        DB::commit();
+        return true;
     }
 
 
@@ -204,10 +232,115 @@ class Admin extends Model
 
     /**
      * @param $id
+     * @return bool
+     * @throws \Throwable
+     * 删除单个管理员数据
+     */
+    public function deleteOne($id) {
+        $result = false;
+        DB::transaction();
+        try{
+            $result1 = Admin::where('id',$id)->delete();
+            $result2 = AdminInfo::where('user_id',$id)->delete();
+        }catch (\Exception $e) {
+            $result = false;
+        }
+
+        if(!$result) {
+            DB::rollBack();
+            return false;
+        }
+
+        DB::commit();
+        return true;
+    }
+
+
+    /**
+     * @param $ids
+     * @return bool
+     * @throws \Throwable
+     * 批量删除多个管理员数据
+     */
+    public function deleteAll(array $ids) {
+        $result = false;
+        DB::transaction();
+        try{
+            $result1 = Admin::whereIn('id',$ids)->delete();
+            $result2 = AdminInfo::whereIn('user_id',$ids)->delete();
+        }catch (\Exception $e) {
+            $result = false;
+        }
+
+        if(!$result) {
+            DB::rollBack();
+            return false;
+        }
+
+        DB::commit();
+        return true;
+    }
+
+
+    /**
+     * @param $id
      * @return mixed
-     * 获取状态
+     *获取管理员状态
      */
     public function getStatus($id) {
         return Admin::where('id',$id)->value('status');
+    }
+
+
+
+    /**
+     * @param $id
+     * @return array|bool
+     * 获取单个管理员信息
+     */
+    public function getOne($id) {
+        $admin = Admin::where('id',$id)->first();
+        $adminInfo = AdminInfo::where('user_id',$id)->first();
+
+        if(!$admin || !$adminInfo) {
+            return false;
+        }
+
+        return [
+            'id'=>$admin->id,
+            'account'=>$admin->account,
+            'status'=>$admin->status,
+            'isAdmin'=>$admin->is_admin,
+            'email'=>$adminInfo->email,
+            'phone'=>$adminInfo->phone,
+            'lastLoginIp'=>$adminInfo->last_login_ip,
+            'lastLoginTime'=>$adminInfo->last_login_time,
+            'createdAt'=>$admin->created_at,
+            'updatedAt'=>$admin->updated_at
+        ];
+    }
+
+
+    /**
+     * @param $id
+     * @param $fieldName
+     * @param $val
+     * @return mixed
+     * 查询管理员表中某个数据是否存在，去除和本身数据比较
+     */
+    public function checkFieldIsExistsExceptIdByAdmin($id,$fieldName,$val) {
+        return Admin::where('id','<>',$id)->where($fieldName,$val)->count();
+    }
+
+
+    /**
+     * @param $userId
+     * @param $fieldName
+     * @param $val
+     * @return mixed
+     * 查询管理员附属表某个数据是否存在，去除和本身数据比较
+     */
+    public function checkFielDIsExistsExceptIdByAdminInfo($userId,$fieldName,$val) {
+        return AdminInfo::where('user_id','<>',$userId)->where($fieldName,$val)->count();
     }
 }

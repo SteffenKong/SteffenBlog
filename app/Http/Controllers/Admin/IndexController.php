@@ -16,6 +16,11 @@ class IndexController extends Controller
         return view('/admin/index/index');
     }
 
+
+    /**
+     * @return mixed
+     * 欢迎页
+     */
     public function welcome() {
         return view('/admin/index/welcome');
     }

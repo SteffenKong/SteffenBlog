@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
-class AdminAddRequest extends BaseRequest
+class AdminEditRequest extends BaseRequest
 {
 
     /**
@@ -13,14 +13,16 @@ class AdminAddRequest extends BaseRequest
     public function rules()
     {
         return [
-            'account'=>'required|unique:admin',
+            'id'=>'required|numeric',
+            'account'=>'required',
             'password'=>'required',
-            'phone'=>'required|numeric|unique:admin_info',
+            'phone'=>'required|numeric',
             'isAdmin'=>'in:0,1',
             'status'=>'in:0,1',
-            'email'=>'required|email|unique:admin_info'
+            'email'=>'required|email'
         ];
     }
+
 
     /**
      * @return array
@@ -29,17 +31,16 @@ class AdminAddRequest extends BaseRequest
     public function messages()
     {
         return [
+            'id.required'=>'管理员id为空',
+            'id.numeric'=>'管理员id类型异常',
             'account.required'=>'请填写帐号',
-            'account.unique'=>'帐号已存在',
             'password.required'=>'请填写密码',
             'phone.required'=>'请填写手机号码',
             'phone.numeric'=>'手机号码格式必须为数字',
-            'phone.unique'=>'手机号码已存在',
             'isAdmin.in'=>'是否为管理员类型异常',
             'status.in'=>'状态值类型异常',
             'email.required'=>'请填写邮箱',
-            'email.email'=>'邮箱格式不正确',
-            'email.unique'=>'邮箱已存在'
+            'email.email'=>'邮箱格式不正确'
         ];
     }
 }
