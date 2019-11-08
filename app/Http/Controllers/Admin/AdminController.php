@@ -117,6 +117,8 @@ class AdminController extends BaseController
             return redirect('/admin/admin/index');
         }
 
+        $this->isOwnAdminId($id);
+
         if(!$this->adminModel->deleteOne($id)) {
             return jsonPrint('001','删除失败');
         }
@@ -137,6 +139,7 @@ class AdminController extends BaseController
             return redirect('/admin/admin/index');
         }
 
+        $this->isOwnAdminId($ids);
         if(!$this->adminModel->deleteAll($ids)) {
             return jsonPrint('001','删除失败');
         }

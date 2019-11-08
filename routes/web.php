@@ -11,6 +11,8 @@
 |
 */
 
+use App\Exceptions\AdminException;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -43,4 +45,8 @@ Route::group(['namespace'=>'Admin'],function() {
 
         });
     });
+});
+
+Route::get('/test',function() {
+    throw new AdminException('管理员异常测试');
 });

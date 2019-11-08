@@ -217,21 +217,6 @@ class Admin extends Model
 
     /**
      * @param $id
-     * @return mixed
-     * 删除|批量删除管理员数据
-     */
-    public function delData($id) {
-        if(is_array($id)) {
-            //这里是批量删除数据的逻辑
-            return Admin::whereIn('id',$id)->delete();
-        }
-
-        return Admin::where('id',$id)->delete();
-    }
-
-
-    /**
-     * @param $id
      * @return bool
      * @throws \Throwable
      * 删除单个管理员数据
