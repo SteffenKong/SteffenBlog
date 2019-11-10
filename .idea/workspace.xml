@@ -2,16 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf8ccb7-3eff-40a2-a22c-99c7a9e6afd0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/BlogException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design/多人博客后台系统规划图.ddd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/admin/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/admin/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/permission/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/permission/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/permission/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/role/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/role/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/role/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/AdminAddRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/AdminAddRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/AdminEditRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/AdminEditRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/RoleAddRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/RoleAddRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Model/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design/www.SteffenBlog.com.conf" beforeDir="false" afterPath="$PROJECT_DIR$/design/www.SteffenBlog.com.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/AdminInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/AdminInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/common/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/common/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/common/meta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/common/meta.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -127,18 +141,19 @@
   <component name="ProjectId" id="1SqTxJQ9dkGByGAfnJwDFZihwWb" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/design" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\phpenv\PHPTutorial\WWW\SteffenBlog\resources\views\admin" />
+      <recent name="D:\phpenv\PHPTutorial\WWW\SteffenBlog\resources\views\admin\admin" />
       <recent name="D:\phpenv\PHPTutorial\WWW\SteffenBlog\design" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app/Http/Requests/Admin" />
-      <recent name="D:\all\web\PHPTutorial\WWW\SteffenBlog\app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -169,7 +184,9 @@
       <workItem from="1572587949744" duration="5029000" />
       <workItem from="1572600483964" duration="2429000" />
       <workItem from="1572863889026" duration="5907000" />
-      <workItem from="1573203169264" duration="2574000" />
+      <workItem from="1573203169264" duration="2915000" />
+      <workItem from="1573278000272" duration="21711000" />
+      <workItem from="1573368358949" duration="17606000" />
     </task>
     <servers />
   </component>

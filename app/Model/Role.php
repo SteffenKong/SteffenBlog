@@ -5,12 +5,44 @@ namespace App\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Role
+ * @package App\Model
+ * 角色控制器
+ */
 class Role extends Model
 {
     protected $guarded = [];
     protected $table = 'role';
     protected $primaryKey = 'id';
 
+
+    /**
+     * @param $pageSize
+     * @param $roleName
+     * @return array
+     * 获取角色列表
+     */
+    public function getList($pageSize,$roleName) {
+        $list = Role::when(!empty($roleName),function($query) use ($roleName) {
+            return $query->where('role_name','like','%'.$roleName.'%');
+        })->orderBy('id','desc')->paginate($pageSize);
+
+        $return = [];
+
+        if(!empty($list)) {
+            foreach ($list ?? [] as $role) {
+                $return[] = [
+                    'id'=>$role->id,
+                    'roleName'=>$role->role_name,
+                    'description'=>$role->description,
+                    'createdAt'=>$role->created_at,
+                    'updatedAt'=>$role->updated_at
+                ];
+            }
+        }
+        return [$list,$return];
+    }
 
     /**
      * @param $id
@@ -74,5 +106,19 @@ class Role extends Model
      */
     public function deleteRole($id) {
         return Role::destroy($id);
+    }
+
+
+    /**
+     * @param $id
+     * @param $roleName
+     * @return mixed
+     * 获取角色名是否存在
+     */
+    public function getRoleNameIsExistsExceptId($id,$roleName) {
+        return Role::where([
+            ['id','<>',$id],
+            ['role_name','=',$roleName]
+        ])->count();
     }
 }

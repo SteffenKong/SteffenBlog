@@ -17,7 +17,7 @@ class RoleAddRequest extends BaseRequest
     public function rules()
     {
         return [
-            'roleName'=>'required|unique:role',
+            'roleName'=>'required|unique:role,role_name',
             'description'=>'max:150'
         ];
     }

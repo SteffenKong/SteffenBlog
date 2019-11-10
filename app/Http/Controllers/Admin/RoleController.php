@@ -15,13 +15,21 @@ use App\Http\Controllers\Admin\BaseController;
 class RoleController extends BaseController
 {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
     }
 
-    public function index(Request $request) {
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 获取角色列表
+     */
+    public function index(Request $request) {
+        $pageSize = 10;
+        $roleName = $request->get('roleName','');
+        list($paginate,$roles) = $this->roleModel->getList($pageSize,$roleName);
+        return view('/admin/role/index',compact('roles','paginate'));
     }
 
     /**
@@ -39,7 +47,7 @@ class RoleController extends BaseController
      */
     public function doAdd(RoleAddRequest $request) {
         $data = $request->post();
-        if(!$this->roleModel->add($data)) {
+        if(!$this->roleModel->add($data['roleName'],$data['description'])) {
             return jsonPrint('001','角色录入失败');
         }
         return jsonPrint('000','角色录入成功');
@@ -50,7 +58,7 @@ class RoleController extends BaseController
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * 编辑角色模板
      */
-    public function edit($id) {
+    public function update($id) {
         //查询出旧数据
         $role = $this->roleModel->getOne($id);
         return view('/admin/role/edit',compact('role'));
@@ -63,6 +71,11 @@ class RoleController extends BaseController
      */
     public function doEdit(RoleEditRequest $request) {
         $data = $request->post();
+
+        if($this->roleModel->getRoleNameIsExistsExceptId($data['id'],$data['roleName'])) {
+            return jsonPrint('001','角色名已存在!');
+        }
+
         if(!$this->roleModel->edit($data['id'],$data['roleName'],$data['description'])) {
             return jsonPrint('001','角色编辑失败!');
         }
