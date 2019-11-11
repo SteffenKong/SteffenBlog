@@ -20,6 +20,12 @@ class AdminInfo extends Model
      * 更新管理员登录信息
      */
     public function updateLoginInfo($userId,$ip,$loginTime) {
-        return AdminInfo::where('user_id',$userId)->update(['last_login_ip'=>$ip,'last_login_time'=>$loginTime,'updated_at'=>Carbon::now()->toDateTimeString()]);
+        return AdminInfo::updateOrCreate([
+            'user_id'=>$userId
+        ],[
+            'last_login_ip'=>$ip,
+            'last_login_time'=>$loginTime,
+            'updated_at'=>Carbon::now()->toDateTimeString()
+        ]);
     }
 }

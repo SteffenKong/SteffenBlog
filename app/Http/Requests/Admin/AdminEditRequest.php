@@ -15,7 +15,6 @@ class AdminEditRequest extends BaseRequest
         return [
             'id'=>'required|numeric',
             'account'=>'required',
-            'password'=>'required',
             'phone'=>'required|numeric',
             'isAdmin'=>'in:0,1',
             'status'=>'in:0,1',
@@ -34,7 +33,6 @@ class AdminEditRequest extends BaseRequest
             'id.required'=>'管理员id为空',
             'id.numeric'=>'管理员id类型异常',
             'account.required'=>'请填写帐号',
-            'password.required'=>'请填写密码',
             'phone.required'=>'请填写手机号码',
             'phone.numeric'=>'手机号码格式必须为数字',
             'isAdmin.in'=>'是否为管理员类型异常',
